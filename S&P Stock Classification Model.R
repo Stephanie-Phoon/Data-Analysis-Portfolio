@@ -1,9 +1,12 @@
 # Author: Stephanie Phoon
 
 
-# -The data set used in the analysis is Weekly S&P Stock Market Data. The data set recorded the weekly percentage returns for the S&P 500 stock index from the year 1990 to 2010. The data set contains 1089 observations with 9 variables. 
-# -The objective of the case study is to apply the supervised machine learning techniques by developing predictive models on a classification problem which determine the weekly stock market return is positive or negative. By using 3 different predictive models, the analysis could be used to evaluate and determine the best model performance.
-# -In methodology, the data set would be partitioned into train and test sets. The train data set would be used to train the predictive models while the test set is used to validate and evaluate the model performance. 
+# -The data set used in the analysis is Weekly S&P Stock Market Data which is found in the Rstudio data package. 
+# -The data set recorded the weekly percentage returns for the S&P 500 stock index from the year 1990 to 2010. The data set contains 1089 observations with 9 variables. 
+# -The objective of the case study is to apply the supervised machine learning techniques by developing predictive models on a classification problem which determine the weekly stock market return is positive or negative. 
+# -By using 3 different predictive models, the analysis could be used to evaluate and determine the best model performance.
+# -In methodology, the data set would be partitioned into train and test sets. 
+# -The train data set would be used to train the predictive models while the test set is used to validate and evaluate the model performance. 
 
 ### Loading required package
 
@@ -107,9 +110,14 @@ grid.arrange(a3,b3,c3,d3,e3,f3,ncol=3,nrow=2)
 
 # -From Graph 1, shows that all histograms are normally distributed except for the variable 'Volume'.
 # -The box plots of Lag 1 to Lag 5 have approximately similar distributions, including interquartile range, mean, and median. 
-# -It shows that the histogram and box plot of 'Volume' has many outliers and are positively skewed. To obtain a normal distribution, Log transformation would be taken for this 'Volume' variable. 
-# -Graph 3 illustrates the Weekly Stock Market Return from the years 1990 to 2010. Based on the graph, shows that the stock market return is approximately similar from the years 1990 to 2010 and contains a higher proportion of positive returns for every year.
-# -The scatter plot depicts that there are no apparent relationships between the predictors and the target variable. It appears as two clusters, with positive return located above 0 and below 0 that is indicates a negative return. The points of variables: Lag1, Lag2, Lag3, Lag4, and Lag5 are similar that are centered at the range [-5,5]; whereas the points of Volume are mainly clustered at the lower volume of shared traded and scattered over the graph. 
+# -It shows that the histogram and box plot of 'Volume' has many outliers and are positively skewed. 
+# -To obtain a normal distribution, Log transformation would be taken for this 'Volume' variable. 
+# -Graph 3 illustrates the Weekly Stock Market Return from the years 1990 to 2010. 
+# -Based on the graph, shows that the stock market return is approximately similar from the years 1990 to 2010 and contains a higher proportion of positive returns for every year.
+# -The scatter plot depicts that there are no apparent relationships between the predictors and the target variable. 
+# -It appears as two clusters, with positive return located above 0 and below 0 that is indicates a negative return. 
+# -The points of variables: Lag1, Lag2, Lag3, Lag4, and Lag5 are similar that are centered at the range [-5,5]; 
+# -whereas the points of Volume are mainly clustered at the lower volume of shared traded and scattered over the graph. 
 
 ### Transform the variable Volume, Log(Volume)
 
@@ -150,7 +158,8 @@ library(randomForest)
 rfbag1 <- randomForest(Direction~., data = df2_train, importance=T)
 rfbag1
 
-# -The random forest model with the bagging method is developed with 500 trees and the number of try variables to each split is 2 which means each time the model has to consider 2 variables for splitting out of 7 independent variables. 
+# -The random forest model with the bagging method is developed with 500 trees 
+# and the number of try variables to each split is 2 which means each time the model has to consider 2 variables for splitting out of 7 independent variables. 
 # -The OOB estimate of the error rate is 44.69% which is considered quite high.
 
 
